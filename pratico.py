@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib import animation
 import random
+import json
 
 def visualize_packing_gif(rects, bin_width, bin_height, filename="packing.gif"):
     fig, ax = plt.subplots()
@@ -92,7 +93,7 @@ def pack_rects_naive_rows(rects, bin_width, bin_height):
 
 def main():
 
-    W, H = 30, 30  # dimensões 
+    W, H = 50, 50  # dimensões 
 
     rects = [
         Rect(2, 12, id_=1),
@@ -121,6 +122,32 @@ def main():
             print(f"Item {r.id}: placed at ({r.x}, {r.y}), size ({r.w}x{r.h})")
         else:
             print(f"Item {r.id}: not packed")
+
+    output_data = {
+        'rectangles': [],
+        'initial_bin_width': W,
+        'initial_bin_height': H
+    }
+    
+    for r in rects:
+        rect_info = {
+            'id': r.id,
+            'w': r.w,
+            'h': r.h,
+            'was_packed': r.was_packed,
+        }
+        if r.was_packed:
+            rect_info['x'] = r.x
+            rect_info['y'] = r.y
+        output_data['rectangles'].append(rect_info)
+
+    with open('resultado_inicial.json', 'w') as f:
+        json.dump(output_data, f, indent=4)
+        
+    print("\nSolução inicial salva em 'resultado_inicial.json'")
+
+
+    
 
     total_area = W * H
     area_used = sum(r.w * r.h for r in rects if r.was_packed)
