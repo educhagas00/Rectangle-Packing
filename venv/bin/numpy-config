@@ -1,4 +1,4 @@
-#!/home/educhagas/Documents/faculdade/venv/bin/python3
+#!/home/educhagas/Documents/faculdade/teo/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
