@@ -66,6 +66,35 @@ class Rect:
         self.h = h
         self.was_packed = False
 
+def read_instance_file(filename):
+    """
+    Lê um arquivo de instância no formato especificado.
+    Assume que o arquivo sempre existe e é válido.
+    """
+    print(f"Lendo a instância do arquivo: {filename}...")
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+
+        # Linha 1: Número de itens
+        num_items = int(lines[0].strip())
+
+        # Linha 2: Dimensões do Bin
+        bin_width, bin_height = map(int, lines[1].strip().split())
+
+        rects = []
+        # Próximas 'num_items' linhas: dados dos retângulos
+        for i in range(num_items):
+            # Lê os dados da linha e ignora os 3 últimos valores
+            line_data = lines[i + 2].strip().split()
+            rect_id = int(line_data[0])
+            rect_w = int(line_data[1])
+            rect_h = int(line_data[2])
+            
+            rects.append(Rect(w=rect_w, h=rect_h, id_=rect_id))
+    
+    print("Leitura concluída.")
+    return rects, bin_width, bin_height        
+
 def pack_rects_naive_rows(rects, bin_width, bin_height):
     rects.sort(key=lambda r: r.h, reverse=True)
     x_pos = 0
@@ -93,26 +122,9 @@ def pack_rects_naive_rows(rects, bin_width, bin_height):
 
 def main():
 
-    W, H = 50, 50  # dimensões 
+    instance_filename = "instancias/c1-p1.ins2D"
 
-    rects = [
-        Rect(2, 12, id_=1),
-        Rect(7, 12, id_=2),
-        Rect(8, 6, id_=3),
-        Rect(3, 6, id_=4),
-        Rect(3, 5, id_=5),
-        Rect(5, 5, id_=6),
-        Rect(3, 12, id_=7),
-        Rect(3, 7, id_=8),
-        Rect(5, 7, id_=9),
-        Rect(2, 6, id_=10),
-        Rect(3, 2, id_=11),
-        Rect(4, 2, id_=12),
-        Rect(3, 4, id_=13),
-        Rect(4, 4, id_=14),
-        Rect(9, 2, id_=15),
-        Rect(11, 2, id_=16),
-    ]
+    rects, W, H = read_instance_file(instance_filename)
 
     pack_rects_naive_rows(rects, bin_width=W, bin_height=H)
 

@@ -45,90 +45,76 @@
             "w": 8,
             "h": 6,
             "was_packed": true,
-            "x": 20,
-            "y": 0
+            "x": 0,
+            "y": 12
         },
         {
             "id": 4,
             "w": 3,
             "h": 6,
             "was_packed": true,
-            "x": 28,
-            "y": 0
+            "x": 8,
+            "y": 12
         },
         {
             "id": 10,
             "w": 2,
             "h": 6,
             "was_packed": true,
-            "x": 31,
-            "y": 0
+            "x": 11,
+            "y": 12
         },
         {
             "id": 5,
             "w": 3,
             "h": 5,
             "was_packed": true,
-            "x": 33,
-            "y": 0
+            "x": 13,
+            "y": 12
         },
         {
             "id": 6,
             "w": 5,
             "h": 5,
-            "was_packed": true,
-            "x": 36,
-            "y": 0
+            "was_packed": false
         },
         {
             "id": 13,
             "w": 3,
             "h": 4,
-            "was_packed": true,
-            "x": 41,
-            "y": 0
+            "was_packed": false
         },
         {
             "id": 14,
             "w": 4,
             "h": 4,
-            "was_packed": true,
-            "x": 44,
-            "y": 0
+            "was_packed": false
         },
         {
             "id": 11,
             "w": 3,
             "h": 2,
-            "was_packed": true,
-            "x": 0,
-            "y": 12
+            "was_packed": false
         },
         {
             "id": 12,
             "w": 4,
             "h": 2,
-            "was_packed": true,
-            "x": 3,
-            "y": 12
+            "was_packed": false
         },
         {
             "id": 15,
             "w": 9,
             "h": 2,
-            "was_packed": true,
-            "x": 7,
-            "y": 12
+            "was_packed": false
         },
         {
             "id": 16,
             "w": 11,
             "h": 2,
-            "was_packed": true,
-            "x": 16,
-            "y": 12
+            "was_packed": false
         }
     ],
-    "initial_bin_width": 50,
-    "initial_bin_height": 50
+    "initial_bin_width": 20,
+    "initial_bin_height": 20
 }
